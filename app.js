@@ -1,7 +1,7 @@
 require('./api/data/db');
 require('./api/data/user.model');
 require('./api/data/questions.model');
-require('./api/data/user.model');
+require('./api/data/official.model');
 
 const express = require('express');
 const path = require('path');

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const dburl = "mongodb://gaurav:vodafone8053@ds233541.mlab.com:33541/road-safety";
 
-mongoose.connect(dburl, { useNewUrlParser: true });
+const mongoAtlasUrl = "mongodb+srv://gaurav:vodafone8053@road-safety-cluster-x5pys.mongodb.net/test?retryWrites=true"
+
+mongoose.connect(mongoAtlasUrl, { useNewUrlParser: true });
 
 //CONNECTION EVENTS
 mongoose.connection.on('connected', 
-    () => console.log('Mongoose Connected to ' + dburl));
+    () => console.log('Mongoose Connected to ' + mongoAtlasUrl));
 
 mongoose.connection.on('disconnected',
     () => console.log('Mongoose Disconnected'));

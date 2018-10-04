@@ -15,7 +15,8 @@ const questionSchema = new mongoose.Schema({
     }],
     answer: {
         type: Number,
-        required: true},
+        required: true
+    },
 });
 
 const Question = mongoose.model('Question', questionSchema);
