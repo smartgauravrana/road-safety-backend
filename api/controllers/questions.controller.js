@@ -4,7 +4,9 @@ const Question = mongoose.model('Question');
 module.exports.questionsGetAll = (req, res) => {
     console.log('Getting all questions');
     Question
-        .find()
+        .aggregate([
+            { $sample: { size: 11 } }
+        ])
         .exec((err, questions) => {
             if (err) {
                 console.log("Error finding questions");
