@@ -9,7 +9,8 @@ const bodyParser = require('body-parser');
 const routes = require('./api/routes');
 const app = express();
 
-app.set('port', 3000);
+// app.set('port', 3000);
+let port = process.env.PORT;
 
 app.use((req, res, next) => {
     console.log(req.method, req.url);
@@ -22,6 +23,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api', routes);
 
-const server = app.listen(app.get('port'), (req, res) => {
+if (port == null || port == "") {
+    port = 8000;
+  }
+
+const server = app.listen(port, (req, res) => {
     console.log("Server running on port no. " + server.address().port);
 });
