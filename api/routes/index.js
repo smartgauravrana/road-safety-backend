@@ -27,7 +27,14 @@ router
     .post(ctrlOfficials.officialsAddOne)
 
 router
+    .route('/officials/verifyOtp')
+    .get(ctrlOfficials.officialsVerifyOtp);
+
+router
     .route('/officials/:officialId')
+    .get(ctrlOfficials.officialsGetOtp)
     .delete(ctrlOfficials.officialsRemoveOne);
+
+
 
 module.exports = router;
