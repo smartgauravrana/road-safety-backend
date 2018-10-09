@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
         min: 0,
         max:2
     },
+    isPassed: Boolean
 });
 
 const User = mongoose.model('User', userSchema);
