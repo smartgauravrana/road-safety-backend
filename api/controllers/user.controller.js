@@ -81,7 +81,16 @@ module.exports.usersUpdateOne = (req, res) => {
               if(req.body.phone) {
                 user.phone = req.body.phone;
               }
-              user.attemptsLeft = req.body.attemptsLeft || 0;
+
+              if(req.body.attemptsLeft) {
+                user.attemptsLeft = req.body.attemptsLeft;
+              }
+
+              if(req.body.isPassed) {
+                  user.isPassed = req.body.isPassed;
+              }
+            
+              user
         
               user
                 .save((err, userUpdated) => {
@@ -92,7 +101,7 @@ module.exports.usersUpdateOne = (req, res) => {
                   } else {
                     res
                       .status(204)
-                      .json();
+                      .json(user);
                   }
                 });
             }
